@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./configure.sh
+source ./configure.sh
 
 testlength=90;
 for script in "$@"; do

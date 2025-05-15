@@ -2,14 +2,14 @@
 
 I used `apt install mysql-server` to install MySQL, it installed MySQL 8.0.42.
 
-I downloaded the thread_pool_hybrid repo and mysql-server git repo from github. Then I did switched the 8.0 repo and and set the HEAD at the tag 'mysql-8.0.42'
+I downloaded the thread_pool_hybrid repo and mysql-server git repo from github. Then I set the HEAD at the tag 'mysql-8.0.42'.
 
 ```
 git clone https://github.com/Damienkatz/thread_pool_hybrid.git
 git clone https://github.com/mysql/mysql-server.git
 cd mysql-server
-cp -r ../thread_pool_hybrid/ plugin/
 git checkout mysql-8.0.42
+cp -r ../thread_pool_hybrid/ plugin/
 cmake . -DBUILD_CONFIG=mysql_release -DFORCE_INSOURCE_BUILD=1
 ```
 
