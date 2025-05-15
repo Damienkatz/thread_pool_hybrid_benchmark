@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ./configure.sh
+source ./set_env.sh
 
 testlength=90;
 for script in "$@"; do
