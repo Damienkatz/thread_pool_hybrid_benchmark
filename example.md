@@ -1,10 +1,14 @@
 # Example Run of MySQL 8.0.42 on Ubuntu 24.04.2 LTS
 
+NOTE: this probably has mistakes and likely only works on Ubuntu 24.04. If you get stuck email me@damienkatz.com for what you are stuck on and I'll help get you unstuck.
+
 I used `apt install mysql-server` to install MySQL, it installed MySQL 8.0.42.
 
 I git cloned the this repo, thread_pool_hybrid repo and mysql-server repo from github. Then I set the HEAD of mysql-server at the tag 'mysql-8.0.42' and copied the thread_pool_hybrid files into the mysql repo, then did a cmake configure.
 
 ```
+cd ~
+git clone https://github.com/Damienkatz/thrustdb_benchmarks.git
 git clone https://github.com/Damienkatz/thread_pool_hybrid.git
 git clone https://github.com/mysql/mysql-server.git
 cd mysql-server
@@ -110,9 +114,10 @@ export mysqlsocket=/var/run/mysqld/mysqld.sock
 export resultsdir=/home/ubuntu/results
 ```
 
-Now you can run the benchmark tool:
+Now you can run the benchmark tool. First I ran the prepare script, then my perf_test.sh tool.
 
 ```
+ time bash /BMK/sb_exec/sb11-Prepare_10M_8tab-InnoDB.sh 32
 ./perf_test.sh sb11-OLTP_RO_10M_8tab-pareto-trx-socket.sh sb11-OLTP_RO_10M_8tab-pareto-sum_ranges1-notrx-socket.sh sb11-OLTP_RO_10M_8tab-pareto-p_sel1-notrx-socket.sh sb11-OLTP_RO_1M_8tab-pareto-ps-p_sel1-reconnect-notrx-socket.sh sb11-OLTP_RO_10M_8tab-pareto-s_ranges1-notrx-socket.sh sb11-OLTP_RO_10M_8tab-uniform-p_sel1-reconnect-notrx-socket.sh
 ```
 
@@ -129,9 +134,9 @@ pip3 install graph-cli
 python ~/thrustdb_benchmarks/generate_graphs.py ~/results/
 ```
 
-In the ~/results/ directory will be your graph file.
+In the ~/results/ directory will be your graph *.png files.
 
-
+See example_run.md for an example graph output of all of the above.
 
 
 
