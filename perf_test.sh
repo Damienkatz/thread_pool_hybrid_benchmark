@@ -6,7 +6,7 @@ testlength=90;
 for script in "$@"; do
         handler="-thread_pool_hybrid";
         mysql -u $mysqladmin -p$mysqladminpassword -S $mysqlsocket -e \
-                "INSTALL PLUGIN THREAD_POOL_HYBRID SONAME 'libthread_pool_hybrid.so';" 2> /dev/null ;
+                "INSTALL PLUGIN THREAD_POOL_HYBRID SONAME 'libthread_pool_hybrid.so';" ;
         sudo service mysql restart;
         mysqldpid=`pidof mysqld`;
 	echo "Writing to $script$handler.txt"
