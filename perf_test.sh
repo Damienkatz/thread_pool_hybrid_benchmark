@@ -5,11 +5,14 @@ source ./set_env.sh
 testlength=90;
 for script in "$@"; do
         handler="-thread_pool_hybrid";
+        while ! sudo service mysql status | grep -q "Active: active (running)" ; do sleep 1; done
         mysql -u $mysqladmin -p$mysqladminpassword -S $mysqlsocket -e \
                 "INSTALL PLUGIN THREAD_POOL_HYBRID SONAME 'libthread_pool_hybrid.so';" ;
         sudo service mysql restart;
+        echo "Warming up filesystem cache";
+        /BMK/sb_exec/$script 1024 $testlength >> /dev/null;
         mysqldpid=`pidof mysqld`;
-	echo "Writing to $script$handler.txt"
+	echo "Writing to $script$handler.txt";
         echo "" > $resultsdir/$script$handler.txt;
         for users in 1 4 16 64 256 1024 4096 16384 32768 65536 98304; do
 		echo "Attempting $users clients";
@@ -42,13 +45,17 @@ for script in "$@"; do
                 rm -f $resultsdir/tmp_perf_values.txt;
                 rm -f $resultsdir/tmp_process_stats.txt;
         done;
+        sleep 30
 
         handler="-connection_per_thread";
+        while ! sudo service mysql status | grep -q "Active: active (running)" ; do sleep 1; done
 	mysql -u $mysqladmin -p$mysqladminpassword -S $mysqlsocket -e \
                 "UNINSTALL PLUGIN THREAD_POOL_HYBRID;" 2> /dev/null;
         sudo service mysql restart;
+        echo "Warming up filesystem cache";
+        /BMK/sb_exec/$script 1024 $testlength >> /dev/null;
         mysqldpid=`pidof mysqld`;
-	echo "Writing to $script$handler.txt"
+	echo "Writing to $script$handler.txt";
         echo "" > $resultsdir/$script$handler.txt;
         for users in 1 4 16 64 256 1024 4096 16384 32768 65536 98304; do
 		echo "Attempting $users clients";
@@ -81,4 +88,5 @@ for script in "$@"; do
                 rm -f $resultsdir/tmp_perf_values.txt;
                 rm -f $resultsdir/tmp_process_stats.txt;
         done;
+        sleep 30
 done;
