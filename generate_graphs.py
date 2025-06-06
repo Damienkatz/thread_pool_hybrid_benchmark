@@ -106,6 +106,9 @@ def extract_next_stats(file):
         if line.startswith("# Time "):
             line = file.readline()
             line = re.sub(' +', ' ', line).split(" ")
+            if line[1].lower() == "pm"  or line[1].lower() == "am":
+                ## remove the am/pm from the list. Some platforms have some don't
+                line.pop(1)
             procvals.user_cpu = float(line[3])
             procvals.system_cpu = float(line[4])
             procvals.virtual_mb = float(line[11])/1000
@@ -145,40 +148,72 @@ def extract_next_stats(file):
     stats.avg_system_cpu = sum_system_cpu/len(procvalues_list)
     return stats
 
+
+class Test:
+    def __init__(self, test_result_a, test_result_b):
+        self.name = test_result_a.split(".sh-")[0] + ".sh"
+        self.result_a = test_result_a
+        self.result_b = test_result_b
+        self.config_a = test_result_a.split(".sh-")[1].replace(".txt", "").replace("_", " ")
+        self.config_b = test_result_b.split(".sh-")[1].replace(".txt", "").replace("_", " ")
+
 if len(sys.argv) > 1:
     dir = sys.argv[1]
     listdir = sys.argv[1]
 else:
     dir = ""
     listdir = "."
-testList = [i for i in os.listdir(listdir) if i.startswith("sb11-") and i.endswith(".txt")]
-testList = [i.replace("-thread_pool_hybrid.txt", "") for i in testList if i.endswith("-thread_pool_hybrid.txt") and \
-            i.replace("-thread_pool_hybrid.txt", "-connection_per_thread.txt") in testList]
-print(testList)
+test_result_list = [i for i in os.listdir(listdir) if i.startswith("sb11-") and i.endswith(".txt")]
+test_result_list.sort()
 
-for test in testList:
-    print("Attempting " + test)
-    file_tph = open(dir + test + '-thread_pool_hybrid.txt', 'r')
-    file_cpt = open(dir + test + '-connection_per_thread.txt', 'r')
-    
-    events_sec_csv = open(dir + test + "-events_sec.csv", "w")
-    events_sec_csv.write("x,thread pool hybrid,connection per thread\n")
+test_result_a = None
+test_result_b = None
+tests = []
 
-    latency_csv = open(dir + test + "-latency.csv", "w")
-    latency_csv.write("x,thread pool hybrid - latency 95th % ms,thread pool hybrid - latency average ms," +
-                    "connection per thread - latency 95th % ms,connection per thread - latency average ms\n")
+while True:
+    if test_result_a == None:
+        if len(test_result_list) > 0:
+            test_result_a = test_result_list.pop()
+        else:
+            break
+
+    if test_result_b == None:
+        if len(test_result_list) > 0:
+            test_result_b = test_result_list.pop()
+        else:
+            break
+
+    if test_result_a.split(".sh-")[0] == test_result_b.split(".sh-")[0]:
+        tests.append(Test(test_result_a, test_result_b))
+        test_result_a = None
+        test_result_b = None
+    else:
+        test_result_a = None
+
+
+for test in tests:
+    print("Attempting " + test.name)
+    file_b = open(dir + test.result_b, 'r')
+    file_a = open(dir + test.result_a, 'r')
     
-    cpu_csv = open(dir + test + "-cpu.csv", "w")
-    cpu_csv.write("x,thread pool hybrid - avg user cpu,thread pool hybrid - avg system cpu," +
-                    "connection per thread - avg user cpu,connection per thread - avg system cpu\n")
+    events_sec_csv = open(dir + test.name + "-events_sec.csv", "w")
+    events_sec_csv.write("x," + test.config_a + "," + test.config_b + "\n")
+
+    latency_csv = open(dir + test.name + "-latency.csv", "w")
+    latency_csv.write("x," + test.config_a + " - latency 95th % ms," + test.config_a + " - latency average ms," +
+                   test.config_b + " - latency 95th % ms," + test.config_b + " - latency average ms\n")
     
-    memory_csv = open(dir + test + "-memory.csv", "w")
-    memory_csv.write("x,thread pool hybrid - max virtual memory mb,thread pool hybrid - max resident memory mb," +
-                    "connection per thread - max virtual memory mb,connection per thread - max resident memory mb\n")
+    cpu_csv = open(dir + test.name + "-cpu.csv", "w")
+    cpu_csv.write("x," + test.config_a + " - avg user cpu," + test.config_a + " - avg system cpu," +
+                    test.config_b + " - avg user cpu," + test.config_b + " - avg system cpu\n")
+    
+    memory_csv = open(dir + test.name + "-memory.csv", "w")
+    memory_csv.write("x," + test.config_a + " - max virtual memory mb," + test.config_a + " - max resident memory mb," +
+                     test.config_b + " - max virtual memory mb," + test.config_b + " - max resident memory mb\n")
 
     while True:
-        stats_tph = extract_next_stats(file_tph)
-        stats_cpt = extract_next_stats(file_cpt)
+        stats_tph = extract_next_stats(file_a)
+        stats_cpt = extract_next_stats(file_b)
 
         if stats_tph.clients == 0 and stats_cpt.clients == 0:
             events_sec_csv.close()
@@ -206,14 +241,14 @@ for test in testList:
                 + "," + str(stats_cpt.max_virtual_mb) + "," + str(stats_cpt.max_resident_mb) + "\n"
         memory_csv.write(line)
         
-    os.system("graph " + dir + test + "-events_sec.csv" + " --bar --title \"THROUGHPUT - " + \
-              test + "\" --xlabel clients --ylabel events/sec --fontsize 10 --output " + dir + test + "-1_events_sec.png")
+    os.system("graph " + dir + test.name + "-events_sec.csv" + " --bar --title \"THROUGHPUT - " + \
+              test.name + "\" --xlabel clients --ylabel events/sec --fontsize 10 --output " + dir + test.name + "-1_events_sec.png")
     
-    os.system("graph " + dir + test + "-latency.csv" + " --bar --title \"LATENCY - " + \
-              test + "\" --xlabel clients --ylabel \"latency ms\" --color steelblue,lightsteelblue,#EF8636,sandybrown --fontsize 10 --output " + dir + test + "-2_latency.png")
+    os.system("graph " + dir + test.name + "-latency.csv" + " --bar --title \"LATENCY - " + \
+              test.name + "\" --xlabel clients --ylabel \"latency ms\" --color steelblue,lightsteelblue,#EF8636,sandybrown --fontsize 10 --output " + dir + test.name + "-2_latency.png")
 
-    os.system("graph " + dir + test + "-cpu.csv" + " --bar --title \"CPU - " + \
-              test + "\" --xlabel clients --ylabel \"cpu %\" --color steelblue,lightsteelblue,#EF8636,sandybrown --fontsize 10 --output " + dir + test + "-4_cpu.png")
+    os.system("graph " + dir + test.name + "-cpu.csv" + " --bar --title \"CPU - " + \
+              test.name + "\" --xlabel clients --ylabel \"cpu %\" --color steelblue,lightsteelblue,#EF8636,sandybrown --fontsize 10 --output " + dir + test.name + "-4_cpu.png")
 
-    os.system("graph " + dir + test + "-memory.csv" + " --bar --title \"MEMORY - " + \
-              test + "\" --xlabel clients --ylabel \"memory mb\" --color steelblue,lightsteelblue,#EF8636,sandybrown --fontsize 10 --output " + dir + test + "-3_memory.png")
+    os.system("graph " + dir + test.name + "-memory.csv" + " --bar --title \"MEMORY - " + \
+              test.name + "\" --xlabel clients --ylabel \"memory mb\" --color steelblue,lightsteelblue,#EF8636,sandybrown --fontsize 10 --output " + dir + test.name + "-3_memory.png")

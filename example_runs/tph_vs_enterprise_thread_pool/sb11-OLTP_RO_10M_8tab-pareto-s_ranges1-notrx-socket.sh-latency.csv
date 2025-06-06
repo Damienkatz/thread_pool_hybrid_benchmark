@@ -1,0 +1,10 @@
+x,thread pool hybrid - latency 95th % ms,thread pool hybrid - latency average ms,enterprise thread pool - latency 95th % ms,enterprise thread pool - latency average ms
+1,2.39,0.62,2.71,0.81
+4,2.57,0.63,2.71,0.64
+16,5.57,0.83,5.99,0.86
+64,0.48,0.62,0.69,0.69
+256,1.82,1.64,2.07,1.68
+1024,16.71,6.73,14.46,7.09
+4096,62.19,29.41,58.92,31.62
+16384,193.38,122.98,153.02,131.81
+32768,363.18,258.167099609375,320.17,276.91287109375

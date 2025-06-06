@@ -1,0 +1,957 @@
+
+Clients: 1
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            110659
+        write:                           0
+        other:                           0
+        total:                           110659
+    transactions:                        110659 (1229.52 per sec.)
+    queries:                             110659 (1229.52 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      1229.5180
+    time elapsed:                        90.0019s
+    total number of events:              110659
+
+Latency (ms):
+         min:                                    0.05
+         avg:                                    0.81
+         max:                                    9.64
+         95th percentile:                        2.71
+         sum:                                89894.29
+
+Threads fairness:
+    events (avg/stddev):           110659.0000/0.00
+    execution time (avg/stddev):   89.8943/0.00
+
+Linux 5.14.0-570.12.1.el9_6.x86_64 (ip-172-31-27-7.us-west-2.compute.internal) 	06/05/2025 	_x86_64_	(16 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:31:39 AM    27    307800   16.60    6.60    0.00    0.00   23.20     6     61.00      0.00 37539208 8105384   6.27  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:31:44 AM    27    307800   17.00    6.20    0.00    0.00   23.20     6     17.60      0.00 37539208 8285704   6.41  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:31:49 AM    27    307800   17.40    5.80    0.00    0.00   23.20     6     16.80      0.00 37539208 8455688   6.54  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:31:54 AM    27    307800   16.40    6.40    0.00    0.00   22.80     6     15.80      0.00 37539208 8617532   6.67  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:31:59 AM    27    307800   16.80    6.20    0.00    0.00   23.00     6     16.40      0.00 37539208 8785468   6.80  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:04 AM    27    307800   16.40    6.00    0.00    0.00   22.40     6     16.20      0.00 37539208 8949308   6.92  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:09 AM    27    307800   17.00    6.00    0.00    0.00   23.00     6     16.60      0.00 37539208 9119292   7.05  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:14 AM    27    307800   18.00    5.40    0.00    0.00   23.40     6     16.40      0.00 37539208 9287228   7.18  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:19 AM    27    307800   18.00    5.40    0.00    0.00   23.40     6     15.80      0.00 37539208 9449020   7.31  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:24 AM    27    307800   17.40    6.00    0.00    0.00   23.40     6     17.60      0.00 37539208 9627196   7.45  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:29 AM    27    307800   17.60    5.80    0.00    0.00   23.40     6     16.00      0.00 37539208 9788988   7.57  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:34 AM    27    307800   17.80    5.80    0.00    0.00   23.60     6     16.20      0.00 37539208 9954876   7.70  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:39 AM    27    307800   17.60    6.20    0.00    0.00   23.80     6     16.40      0.00 37539208 10122812   7.83  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:44 AM    27    307800   18.20    6.00    0.00    0.00   24.20     6     16.20      0.00 37539208 10288700   7.96  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:49 AM    27    307800   18.40    6.00    0.00    0.00   24.40     6     15.60      0.00 37539208 10448444   8.08  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:54 AM    27    307800   18.60    6.00    0.00    0.00   24.60     6     16.20      0.00 37539208 10614332   8.21  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:32:59 AM    27    307800   18.20    6.40    0.00    0.00   24.60     6     16.20      0.00 37539208 10778172   8.34  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:04 AM    27    307800   18.00    6.20    0.00    0.00   24.20     6     15.00      0.00 37539208 10931772   8.46  mysqld
+end process stats
+Clients: 4
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 4
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            562692
+        write:                           0
+        other:                           0
+        total:                           562692
+    transactions:                        562692 (6252.06 per sec.)
+    queries:                             562692 (6252.06 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      6252.0632
+    time elapsed:                        90.0010s
+    total number of events:              562692
+
+Latency (ms):
+         min:                                    0.05
+         avg:                                    0.64
+         max:                                   13.22
+         95th percentile:                        2.71
+         sum:                               359558.67
+
+Threads fairness:
+    events (avg/stddev):           140673.0000/521.86
+    execution time (avg/stddev):   89.8897/0.00
+
+Linux 5.14.0-570.12.1.el9_6.x86_64 (ip-172-31-27-7.us-west-2.compute.internal) 	06/05/2025 	_x86_64_	(16 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:09 AM    27    307800   64.60   16.00    0.00    0.00   80.60     6     29.00      0.00 37539208 11226684   8.68  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:14 AM    27    307800   55.20   15.40    0.00    0.00   70.60     6     23.20      0.00 37539208 11464252   8.87  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:19 AM    27    307800   57.20   15.00    0.00    0.00   72.20     6     23.00      0.00 37539208 11699772   9.05  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:24 AM    27    307800   59.60   14.40    0.00    0.00   74.00     6     23.80      0.00 37539208 11943484   9.24  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:29 AM    27    307800   60.80   14.00    0.00    0.00   74.80     6     23.40      0.00 37539208 12183100   9.42  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:34 AM    27    307800   61.40   15.20    0.00    0.00   76.60     6     24.00      0.00 37539208 12428860   9.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:39 AM    27    307800   62.20   15.80    0.00    0.00   78.00     6     23.20      0.00 37539208 12666428   9.80  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:44 AM    27    307800   66.20   14.80    0.00    0.00   81.00     6     23.20      0.00 37539208 12903996   9.98  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:49 AM    27    307800   64.80   16.40    0.00    0.00   81.20     6     24.00      0.00 37539208 13145660  10.17  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:54 AM    27    307800   67.00   16.60    0.00    0.00   83.60     6     23.80      0.00 37539208 13385276  10.35  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:33:59 AM    27    307800   68.80   17.00    0.00    0.00   85.80     6     23.00      0.00 37539208 13618748  10.53  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:04 AM    27    307800   68.80   16.80    0.00    0.00   85.60     6     24.40      0.00 37539208 13866556  10.73  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:09 AM    27    307800   81.40   18.20    0.00    0.00   99.60     6     18.00      0.00 37539208 14050876  10.87  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:14 AM    27    307800   84.40   19.40    0.00    0.00  103.80     6     18.20      0.00 37539208 14237244  11.01  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:19 AM    27    307800   82.60   17.20    0.00    0.00   99.80     6     17.40      0.00 37539208 14415420  11.15  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:24 AM    27    307800   83.00   19.00    0.00    0.00  102.00     6     16.80      0.00 37539208 14587452  11.28  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:29 AM    27    307800   85.80   17.60    0.00    0.00  103.40     6     17.40      0.00 37539208 14761532  11.42  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:34 AM    27    307800   84.80   18.80    0.00    0.00  103.60     6     16.60      0.00 37539208 14931528  11.55  mysqld
+end process stats
+Clients: 16
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 16
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            1666158
+        write:                           0
+        other:                           0
+        total:                           1666158
+    transactions:                        1666158 (18511.61 per sec.)
+    queries:                             1666158 (18511.61 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      18511.6073
+    time elapsed:                        90.0061s
+    total number of events:              1666158
+
+Latency (ms):
+         min:                                    0.04
+         avg:                                    0.86
+         max:                                   33.05
+         95th percentile:                        5.99
+         sum:                              1439206.44
+
+Threads fairness:
+    events (avg/stddev):           104134.8750/11040.65
+    execution time (avg/stddev):   89.9504/0.00
+
+Linux 5.14.0-570.12.1.el9_6.x86_64 (ip-172-31-27-7.us-west-2.compute.internal) 	06/05/2025 	_x86_64_	(16 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:39 AM    27    307800  116.60   25.00    0.00    0.00  141.60    11     28.40      0.00 37539208 15222344  11.78  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:44 AM    27    307800  104.00   23.00    0.00    0.00  127.00    11     23.00      0.00 37539208 15457864  11.96  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:49 AM    27    307800  108.60   22.40    0.00    0.00  131.00    11     23.80      0.00 37539208 15701576  12.15  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:54 AM    27    307800  110.00   23.20    0.00    0.00  133.20    11     23.60      0.00 37539208 15943240  12.33  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:34:59 AM    27    307800  113.60   25.60    0.00    0.00  139.20    11     23.40      0.00 37539208 16182856  12.52  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:04 AM    27    307800  116.40   24.40    0.00    0.00  140.80    11     23.20      0.00 37539208 16420424  12.70  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:09 AM    27    307800  118.00   26.80    0.00    0.00  144.80    11     23.40      0.00 37539208 16660040  12.89  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:14 AM    27    307800  122.00   27.00    0.00    0.00  149.00    11     24.20      0.00 37539208 16901704  13.07  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:19 AM    27    307800  130.00   26.60    0.00    0.00  156.60    11     23.40      0.00 37539208 17141320  13.26  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:24 AM    27    307800  132.60   27.60    0.00    0.00  160.20    11     23.40      0.00 37539208 17380936  13.44  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:29 AM    27    307800  139.00   29.00    0.00    0.00  168.00    11     23.20      0.00 37539208 17618504  13.63  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:34 AM    27    307800  142.40   30.40    0.00    0.00  172.80    11     23.40      0.00 37539208 17858120  13.81  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:39 AM    27    307800  149.60   31.40    0.00    0.00  181.00    11     23.60      0.00 37539208 18099784  14.00  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:44 AM    27    307800  156.00   31.20    0.00    0.00  187.20    11     23.20      0.00 37539208 18337352  14.18  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:49 AM    27    307800  161.80   33.80    0.00    0.00  195.60    11     23.60      0.00 37539208 18579016  14.37  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:54 AM    27    307800  169.80   35.00    0.00    0.00  204.80    11     24.20      0.00 37539208 18820692  14.56  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:35:59 AM    27    307800  180.40   35.80    0.00    0.00  216.20    11     23.60      0.00 37539208 19062356  14.75  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:04 AM    27    307800  190.40   38.80    0.00    0.00  229.20    11     23.20      0.00 37539208 19299924  14.93  mysqld
+end process stats
+Clients: 64
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 64
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            8403366
+        write:                           0
+        other:                           0
+        total:                           8403366
+    transactions:                        8403366 (93365.20 per sec.)
+    queries:                             8403366 (93365.20 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      93365.1957
+    time elapsed:                        90.0053s
+    total number of events:              8403366
+
+Latency (ms):
+         min:                                    0.05
+         avg:                                    0.69
+         max:                                  121.20
+         95th percentile:                        0.69
+         sum:                              5757155.79
+
+Threads fairness:
+    events (avg/stddev):           131302.5938/16782.75
+    execution time (avg/stddev):   89.9556/0.01
+
+Linux 5.14.0-570.12.1.el9_6.x86_64 (ip-172-31-27-7.us-west-2.compute.internal) 	06/05/2025 	_x86_64_	(16 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:09 AM    27    307800  200.40   36.20    0.00    0.00  236.60     5     23.60      0.00 37539208 19541588  15.12  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:14 AM    27    307800  214.00   38.80    0.00    0.00  252.80     5     23.40      0.00 37539208 19781204  15.30  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:19 AM    27    307800  226.00   40.00    0.00    0.00  266.00     5     23.60      0.00 37539208 20022868  15.49  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:24 AM    27    307800  246.20   43.20    0.00    0.00  289.40     5     23.40      0.00 37539208 20262484  15.67  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:29 AM    27    307800  275.00   45.20    0.00    0.00  320.20     5     23.40      0.00 37539208 20502100  15.86  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:34 AM    27    307800  304.40   51.00    0.00    0.00  355.40     5     23.80      0.00 37539208 20743764  16.05  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:39 AM    27    307800  350.80   56.40    0.00    0.00  407.20     5     22.80      0.00 37539208 20977236  16.23  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:44 AM    27    307800  399.00   62.00    0.00    0.00  461.00     5     23.80      0.00 37539208 21220948  16.42  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:49 AM    27    307800  481.60   72.60    0.00    0.00  554.20     5     23.20      0.00 37539208 21458516  16.60  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:54 AM    27    307800  615.00   90.00    0.00    0.00  705.00     5     23.80      0.00 37539208 21702228  16.79  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:36:59 AM    27    307800  824.80  109.80    0.00    0.00  934.60     5     23.20      0.00 37539208 21937748  16.97  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:04 AM    27    307800 1047.20  120.80    0.00    0.00 1168.00     5     23.80      0.00 37539208 22181460  17.16  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:09 AM    27    307800 1187.20  114.20    0.00    0.00 1301.40     5     21.60      0.00 37539208 22402644  17.33  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:14 AM    27    307800 1196.60  112.80    0.00    0.00 1309.40     5     20.40      0.00 37539208 22576736  17.46  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:19 AM    27    307800 1203.60  109.60    0.00    0.00 1313.20     5     12.80      0.00 37539208 22707808  17.57  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:24 AM    27    307800 1170.20  121.40    0.00    0.00 1291.60     5      9.40      0.00 37539208 22804064  17.64  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:29 AM    27    307800 1138.40  134.80    0.00    0.00 1273.20     5      7.00      0.00 37539208 22875744  17.70  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:34 AM    27    307800 1129.80  140.00    0.00    0.00 1269.80     5      7.80      0.00 37539208 22928992  17.74  mysqld
+end process stats
+Clients: 256
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 256
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            13708702
+        write:                           0
+        other:                           0
+        total:                           13708702
+    transactions:                        13708702 (152282.40 per sec.)
+    queries:                             13708702 (152282.40 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      152282.4029
+    time elapsed:                        90.0216s
+    total number of events:              13708702
+
+Latency (ms):
+         min:                                    0.06
+         avg:                                    1.68
+         max:                                   39.06
+         95th percentile:                        2.07
+         sum:                             23032578.57
+
+Threads fairness:
+    events (avg/stddev):           53549.6172/348.44
+    execution time (avg/stddev):   89.9710/0.01
+
+Linux 5.14.0-570.12.1.el9_6.x86_64 (ip-172-31-27-7.us-west-2.compute.internal) 	06/05/2025 	_x86_64_	(16 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:39 AM    27    307800 1151.80  133.80    0.00    0.20 1285.60     0    304.20      0.00 37539208 22976936  17.77  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:44 AM    27    307800 1216.00  111.60    0.00    0.00 1327.60     0     47.60      0.00 37539208 23008708  17.80  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:49 AM    27    307800 1219.60  109.00    0.00    0.00 1328.60     0     20.20      0.00 37539208 23035760  17.82  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:54 AM    27    307800 1220.00  110.80    0.00    0.00 1330.80     0      9.00      0.00 37539208 23058468  17.84  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:37:59 AM    27    307800 1227.00  107.80    0.00    0.00 1334.80     0     23.40      0.00 37539208 23073228  17.85  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:04 AM    27    307800 1225.00  108.20    0.00    0.00 1333.20     0      3.60      0.00 37539208 23083508  17.86  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:09 AM    27    307800 1229.40  107.00    0.00    0.00 1336.40     0     13.00      0.00 37539208 23091752  17.86  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:14 AM    27    307800 1232.73  102.59    0.00    0.00 1335.33     0      8.38      0.00 37539208 23102196  17.87  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:19 AM    27    307800 1234.60  105.00    0.00    0.00 1339.60     0      2.60      0.00 37539208 23106360  17.87  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:24 AM    27    307800 1238.60  101.40    0.00    0.00 1340.00     0      2.00      0.00 37539208 23110456  17.88  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:29 AM    27    307800 1236.80  102.60    0.00    0.00 1339.40     0     14.40      0.00 37539208 23116876  17.88  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:34 AM    27    307800 1235.20  104.60    0.00    0.00 1339.80     0      4.00      0.00 37539208 23116876  17.88  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:39 AM    27    307800 1234.60  104.00    0.00    0.00 1338.60     0      1.60      0.00 37539208 23121016  17.88  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:44 AM    27    307800 1239.60  100.80    0.00    0.00 1340.40     0      0.20      0.00 37539208 23121016  17.88  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:49 AM    27    307800 1235.40  104.80    0.00    0.00 1340.20     0      2.00      0.00 37539208 23127332  17.89  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:54 AM    27    307800 1237.60  103.00    0.00    0.00 1340.60     0      0.20      0.00 37539208 23129392  17.89  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:38:59 AM    27    307800 1238.80  101.60    0.00    0.00 1340.40     0      0.00      0.00 37539208 23129392  17.89  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:04 AM    27    307800 1236.40  104.40    0.00    0.00 1340.80     0      0.00      0.00 37539208 23129392  17.89  mysqld
+end process stats
+Clients: 1024
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1024
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            12981075
+        write:                           0
+        other:                           0
+        total:                           12981075
+    transactions:                        12981075 (144074.92 per sec.)
+    queries:                             12981075 (144074.92 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      144074.9204
+    time elapsed:                        90.0995s
+    total number of events:              12981075
+
+Latency (ms):
+         min:                                    0.08
+         avg:                                    7.09
+         max:                                   50.31
+         95th percentile:                       14.46
+         sum:                             92100415.10
+
+Threads fairness:
+    events (avg/stddev):           12676.8311/990.64
+    execution time (avg/stddev):   89.9418/0.06
+
+Linux 5.14.0-570.12.1.el9_6.x86_64 (ip-172-31-27-7.us-west-2.compute.internal) 	06/05/2025 	_x86_64_	(16 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:09 AM    27    307800 1082.40  132.20    0.00    0.60 1214.60    15   1812.60      0.00 37628480 23162544  17.92  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:14 AM    27    307800 1157.40  141.00    0.00    0.00 1298.40    15    174.20      0.00 37562944 23167748  17.92  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:19 AM    27    307800 1157.60  142.20    0.00    0.00 1299.80    15     87.20      0.00 37562944 23169540  17.92  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:24 AM    27    307800 1165.40  136.40    0.00    0.00 1301.80    15     66.40      0.00 37562944 23170820  17.92  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:29 AM    27    307800 1168.40  136.00    0.00    0.00 1304.40    15     84.80      0.00 37562944 23171972  17.92  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:34 AM    27    307800 1177.60  130.00    0.00    0.00 1307.60    15    100.60      0.00 37628480 23172132  17.92  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:39 AM    27    307800 1186.80  123.60    0.00    0.00 1310.40    15    200.60      0.00 37628480 23173424  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:44 AM    27    307800 1190.40  121.60    0.00    0.00 1312.00    15    188.00      0.00 37628480 23174448  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:49 AM    27    307800 1193.00  121.20    0.00    0.00 1314.20    15    162.00      0.00 37628480 23175688  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:54 AM    27    307800 1198.60  114.00    0.00    0.00 1312.60    15    159.40      0.00 37562944 23176328  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:39:59 AM    27    307800 1202.40  113.20    0.00    0.00 1315.60    15     99.00      0.00 37628480 23176968  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:04 AM    27    307800 1201.20  114.80    0.00    0.00 1316.00    15    219.00      0.00 37628480 23177176  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:09 AM    27    307800 1203.40  112.60    0.00    0.00 1316.00    15    107.00      0.00 37604744 23177092  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:14 AM    27    307800 1200.80  112.57    0.00    0.00 1313.37    15    153.49      0.00 37604744 23176888  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:19 AM    27    307800 1206.20  111.20    0.00    0.00 1317.40    15    166.80      0.00 37604744 23177016  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:24 AM    27    307800 1210.20  106.20    0.00    0.00 1316.40    15    138.40      0.00 37539208 23177016  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:29 AM    27    307800 1206.80  110.20    0.00    0.00 1317.00    15      0.00      0.00 37539208 23177016  17.93  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:34 AM    27    307800 1206.60  109.60    0.00    0.00 1316.20    15      0.80      0.00 37539208 23177016  17.93  mysqld
+end process stats
+Clients: 4096
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 4096
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            11639891
+        write:                           0
+        other:                           0
+        total:                           11639891
+    transactions:                        11639891 (128755.12 per sec.)
+    queries:                             11639891 (128755.12 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      128755.1185
+    time elapsed:                        90.4033s
+    total number of events:              11639891
+
+Latency (ms):
+         min:                                    0.09
+         avg:                                   31.62
+         max:                                  114.88
+         95th percentile:                       58.92
+         sum:                            368038547.62
+
+Threads fairness:
+    events (avg/stddev):           2841.7703/788.95
+    execution time (avg/stddev):   89.8532/0.11
+
+Linux 5.14.0-570.12.1.el9_6.x86_64 (ip-172-31-27-7.us-west-2.compute.internal) 	06/05/2025 	_x86_64_	(16 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:39 AM    27    307800  846.20  118.60    0.00    1.20  964.80    11  36341.60      0.00 38631904 24226088  18.74  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:44 AM    27    307800 1074.20  139.60    0.00    0.00 1213.80    11    196.00      0.00 38631904 24229800  18.74  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:49 AM    27    307800 1121.60  147.40    0.00    0.00 1269.00    11      5.40      0.00 38631904 24230056  18.74  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:54 AM    27    307800 1120.60  148.00    0.00    0.00 1268.60    11     21.20      0.00 38631904 24230824  18.74  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:40:59 AM    27    307800 1122.40  146.40    0.00    0.00 1268.80    11    134.40      0.00 38631904 24233384  18.75  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:04 AM    27    307800 1123.20  146.60    0.00    0.00 1269.80    11     14.60      0.00 38631904 24233768  18.75  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:09 AM    27    307800 1122.20  146.80    0.00    0.00 1269.00    11     13.60      0.00 38631904 24233768  18.75  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:14 AM    27    307800 1126.00  143.80    0.00    0.00 1269.80    11      0.80      0.00 38631904 24233768  18.75  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:19 AM    27    307800 1124.60  144.60    0.00    0.00 1269.20    11      2.80      0.00 38631904 24241832  18.75  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:24 AM    27    307800 1128.40  142.00    0.00    0.00 1270.40    11      2.00      0.00 38631904 24241960  18.75  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:29 AM    27    307800 1124.40  145.60    0.00    0.00 1270.00    11      2.60      0.00 38631904 24257704  18.76  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:34 AM    27    307800 1124.20  146.80    0.00    0.00 1271.00    11      2.80      0.00 38631904 24257832  18.76  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:39 AM    27    307800 1123.15  145.11    0.00    0.00 1268.26    11      6.99      0.00 38523544 24272904  18.78  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:44 AM    27    307800 1130.00  142.20    0.00    0.00 1272.20    11      0.00      0.00 38523544 24272904  18.78  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:49 AM    27    307800 1127.00  143.80    0.00    0.00 1270.80    11     13.60      0.00 38523544 24273672  18.78  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:54 AM    27    307800 1126.60  146.20    0.00    0.00 1272.80    11      0.00      0.00 38523544 24273672  18.78  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:41:59 AM    27    307800 1129.80  142.60    0.00    0.00 1272.40    11      7.40      0.00 38523544 24275080  18.78  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:04 AM    27    307800 1128.00  145.20    0.00    0.00 1273.20    11      0.00      0.00 38523544 24275080  18.78  mysqld
+end process stats
+Clients: 16384
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 16384
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            11101490
+        write:                           0
+        other:                           0
+        total:                           11101490
+    transactions:                        11101490 (121108.11 per sec.)
+    queries:                             11101490 (121108.11 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      121108.1138
+    time elapsed:                        91.6659s
+    total number of events:              11101490
+
+Latency (ms):
+         min:                                    0.09
+         avg:                                  131.81
+         max:                                  421.91
+         95th percentile:                      153.02
+         sum:                           1463331473.64
+
+Threads fairness:
+    events (avg/stddev):           677.5812/13.81
+    execution time (avg/stddev):   89.3147/0.49
+
+Linux 5.14.0-570.12.1.el9_6.x86_64 (ip-172-31-27-7.us-west-2.compute.internal) 	06/05/2025 	_x86_64_	(16 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:10 AM    27    307800  420.00  101.00    0.00    3.20  521.00     5 156553.00      0.00 42240748 28519240  22.06  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:15 AM    27    307800  952.60  119.20    0.00    0.00 1071.80     5     87.00      0.00 42240748 28520776  22.06  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:20 AM    27    307800  978.44  130.14    0.00    0.00 1108.58     5     55.69      0.00 42240748 28522056  22.06  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:25 AM    27    307800 1008.80  134.60    0.00    0.00 1143.40     5      0.00      0.00 42240748 28522056  22.06  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:30 AM    27    307800 1024.40  136.00    0.00    0.00 1160.40     5     17.80      0.00 42240748 28522952  22.06  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:35 AM    27    307800 1012.20  135.60    0.00    0.00 1147.80     5      0.80      0.00 42240748 28522952  22.06  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:40 AM    27    307800 1116.60  148.80    0.00    0.00 1265.40     5      0.00      0.00 42240748 28527944  22.07  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:45 AM    27    307800 1117.60  148.40    0.00    0.00 1266.00     5      3.60      0.00 42240748 28527944  22.07  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:50 AM    27    307800 1117.60  148.60    0.00    0.00 1266.20     5      9.80      0.00 42240748 28533192  22.07  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:42:55 AM    27    307800 1118.60  147.40    0.00    0.00 1266.00     5      2.00      0.00 42240748 28533320  22.07  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:00 AM    27    307800 1116.40  149.00    0.00    0.00 1265.40     5      0.00      0.00 42240748 28538568  22.08  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:05 AM    27    307800 1120.60  145.60    0.00    0.00 1266.20     5      0.00      0.00 42240748 28538568  22.08  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:10 AM    27    307800 1117.00  148.60    0.00    0.00 1265.60     5      3.60      0.00 42132388 28545560  22.08  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:15 AM    27    307800 1116.60  149.40    0.00    0.00 1266.00     5      0.80      0.00 42132388 28545560  22.08  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:20 AM    27    307800 1118.60  146.60    0.00    0.00 1265.20     5      3.60      0.00 42132388 28545560  22.08  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:25 AM    27    307800 1115.60  149.60    0.00    0.00 1265.20     5      1.00      0.00 42132388 28545560  22.08  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:30 AM    27    307800 1116.40  149.00    0.00    0.00 1265.40     5      0.00      0.00 42132388 28545560  22.08  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:35 AM    27    307800 1117.20  148.60    0.00    0.00 1265.80     5      0.00      0.00 42132388 28545560  22.08  mysqld
+end process stats
+Clients: 32768
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 20000
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            6392498
+        write:                           0
+        other:                           0
+        total:                           6392498
+    transactions:                        6392498 (69416.17 per sec.)
+    queries:                             6392498 (69416.17 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      69416.1708
+    time elapsed:                        92.0895s
+    total number of events:              6392498
+
+Latency (ms):
+         min:                                  110.48
+         avg:                                  279.43
+         max:                                  555.08
+         95th percentile:                      320.17
+         sum:                           1786242589.89
+
+Threads fairness:
+    events (avg/stddev):           319.6249/3.62
+    execution time (avg/stddev):   89.3121/0.55
+
+sysbench 1.1.0 (using bundled LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 12768
+Initializing random number generator from current time
+
+
+Initializing worker threads...
+
+=> Using RND Loop: 0
+=> Using SESSION ops: 
+=> Using Sleep-After-Query: 0
+=> Using Sleep-Before-Commit: 0
+=> rnd_data : 100(%)
+
+Threads started!
+
+SQL statistics:
+    queries performed:
+        read:                            4212464
+        write:                           0
+        other:                           0
+        total:                           4212464
+    transactions:                        4212464 (45561.63 per sec.)
+    queries:                             4212464 (45561.63 per sec.)
+    ignored errors:                      0      (0.00 per sec.)
+    reconnects:                          0      (0.00 per sec.)
+
+Throughput:
+    events/s (eps):                      45561.6326
+    time elapsed:                        92.4564s
+    total number of events:              4212464
+
+Latency (ms):
+         min:                                    0.08
+         avg:                                  272.97
+         max:                                  924.22
+         95th percentile:                      320.17
+         sum:                           1149888883.66
+
+Threads fairness:
+    events (avg/stddev):           329.9236/7.48
+    execution time (avg/stddev):   90.0602/0.17
+
+Linux 5.14.0-570.12.1.el9_6.x86_64 (ip-172-31-27-7.us-west-2.compute.internal) 	06/05/2025 	_x86_64_	(16 CPU)
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:45 AM    27    307800   81.20   60.60    0.00    5.40  141.80    10 146623.60      0.00 46588688 32983012  25.51  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:50 AM    27    307800  864.40  137.40    0.00    7.20 1001.80     1  72571.00      0.00 47572640 34382764  26.60  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:43:55 AM    27    307800  948.80  129.40    0.00    0.00 1078.20     1     31.80      0.00 47572640 34387628  26.60  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:00 AM    27    307800  922.80  128.40    0.00    0.00 1051.20     1     25.80      0.00 47572640 34388140  26.60  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:05 AM    27    307800  936.40  133.80    0.00    0.00 1070.20     1     12.00      0.00 47572640 34393516  26.60  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:10 AM    27    307800 1008.80  139.40    0.00    0.00 1148.20     1      2.20      0.00 47572640 34393516  26.60  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:15 AM    27    307800  994.61  140.72    0.00    0.00 1135.33     1      0.00      0.00 47572640 34398124  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:20 AM    27    307800  991.20  139.00    0.00    0.00 1130.20     1      1.40      0.00 47572640 34398124  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:25 AM    27    307800 1001.20  139.00    0.00    0.00 1140.20     1      0.00      0.00 47572640 34403372  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:30 AM    27    307800 1021.40  144.20    0.00    0.00 1165.60     1      0.00      0.00 47572640 34403372  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:35 AM    27    307800  999.60  138.20    0.00    0.00 1137.80     1      0.40      0.00 47572640 34403372  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:40 AM    27    307800 1001.60  138.20    0.00    0.00 1139.80     1      0.00      0.00 47572640 34403372  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:45 AM    27    307800 1106.20  149.20    0.00    0.00 1255.40     1      0.00      0.00 47572640 34403372  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:50 AM    27    307800 1099.40  156.60    0.00    0.00 1256.00     1      0.00      0.00 47464280 34402980  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:44:55 AM    27    307800 1105.00  151.40    0.00    0.00 1256.40     1      0.00      0.00 47464280 34402980  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:45:00 AM    27    307800 1102.60  153.80    0.00    0.00 1256.40     1      0.00      0.00 47464280 34402980  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:45:05 AM    27    307800 1103.40  152.80    0.00    0.00 1256.20     1      0.00      0.00 47464280 34402980  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:45:10 AM    27    307800 1104.40  152.20    0.00    0.00 1256.60     1      0.00      0.00 47464280 34402980  26.61  mysqld
+
+# Time        UID       PID    %usr %system  %guest   %wait    %CPU   CPU  minflt/s  majflt/s     VSZ     RSS   %MEM  Command
+05:45:15 AM    27    307800 1104.20  152.60    0.00    0.00 1256.80     1      0.00      0.00 47464280 34402980  26.61  mysqld
+end process stats
