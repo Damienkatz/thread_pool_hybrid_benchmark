@@ -1,4 +1,4 @@
-# Example comparative thread_pool_hybrid vs connection_per_thread handler
+# Example comparing thread_pool_hybrid vs connection_per_thread handler
 
 This was run on AWS r5.8xlarge with Ubuntu 24.04 and MySQL 8.0.4 with the BMK-kit installed and running on the same machine.
 
