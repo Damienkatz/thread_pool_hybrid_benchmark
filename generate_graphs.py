@@ -2,6 +2,9 @@ import os
 import sys
 import re
 
+# This file was written by Damien Katz, and I don't really know python. Sorry.
+# The graphs produced are much prettier than the code!
+
 class Stats:
     def __init__(self):
         self.clients = 0
@@ -163,6 +166,7 @@ if len(sys.argv) > 1:
 else:
     dir = ""
     listdir = "."
+
 test_result_list = [i for i in os.listdir(listdir) if i.startswith("sb11-") and i.endswith(".txt")]
 test_result_list.sort()
 

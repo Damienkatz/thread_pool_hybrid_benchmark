@@ -17,7 +17,7 @@ cp -r ../thread_pool_hybrid/ plugin/
 cmake . -DBUILD_CONFIG=mysql_release -DFORCE_INSOURCE_BUILD=1
 ```
 
-You will get configure errors here! Use `sudo apt install <packages>` to satisfy them. Sorry, I don't remember them all, but CMake will tell you each dependency that's missing. For example. boost. So google "apt install boost ubuntu" you'll find a page with how to install boost. Satisfy a dependecy, then run `cmake . -DBUILD_CONFIG=mysql_release -DFORCE_INSOURCE_BUILD=1` again. Satify the next dependency, lather repeat...
+You will get configure errors here! Use `sudo apt install <packages>` to satisfy them. Sorry, I don't remember them all, but CMake will tell you each dependency that's missing. For example, boost. So google "apt install boost ubuntu" you'll find a page with how to install boost. Satisfy a dependecy, then run `cmake . -DBUILD_CONFIG=mysql_release -DFORCE_INSOURCE_BUILD=1` again. Satify the next dependency, lather repeat...
 
 Once you've satified all the dependencies, don't build the whole of mysql from source! Unless you like waiting a long time. Instead...
 
@@ -52,14 +52,12 @@ sudo gawk -i inplace '/LimitNOFILE/{gsub(/[0-9]+/, "500000")};{print}' /usr/lib/
 sudo sysctl -p
 ```
 
-#Almost there, inastall and configure the benchmark tool.
-
-git clone this repo and install the benchmark tool.
+#Install and configure the benchmark tool
 
 ```
 cd ~/thrustdb_benchmarks
 sudo tar -xvzf BMK-kit.tgz -C /
-cp set_env.sh perf_test.sh /BMK
+cp set_env.sh perf_test_ubuntu.sh /BMK
 sudo chown -R ubuntu:ubuntu /BMK
 ```
 
@@ -80,11 +78,11 @@ password = [password]
 socket   = /var/run/mysqld/mysqld.sock
 ```
 
-Now edit the set_env.sh file in /BMK/ and fill in the fields.
+Now edit the .bench file in /BMK/ and fill in the fields.
 
 ```
 cd /BMK
-vim set_env.sh
+vim .bench
 ```
 
 ```
@@ -117,11 +115,9 @@ export resultsdir=/home/ubuntu/results
 Now you can run the benchmark tool. First I ran the prepare script, then my perf_test.sh tool.
 
 ```
- time bash /BMK/sb_exec/sb11-Prepare_10M_8tab-InnoDB.sh 32
-./perf_test.sh sb11-OLTP_RO_10M_8tab-pareto-trx-socket.sh sb11-OLTP_RO_10M_8tab-pareto-sum_ranges1-notrx-socket.sh sb11-OLTP_RO_10M_8tab-pareto-p_sel1-notrx-socket.sh sb11-OLTP_RO_1M_8tab-pareto-ps-p_sel1-reconnect-notrx-socket.sh sb11-OLTP_RO_10M_8tab-pareto-s_ranges1-notrx-socket.sh sb11-OLTP_RO_10M_8tab-uniform-p_sel1-reconnect-notrx-socket.sh
+time bash /BMK/sb_exec/sb11-Prepare_10M_8tab-InnoDB.sh 32
+./perf_test_ubuntu.sh sb11-OLTP_RO_10M_8tab-pareto-trx-socket.sh sb11-OLTP_RO_10M_8tab-pareto-sum_ranges1-notrx-socket.sh sb11-OLTP_RO_10M_8tab-pareto-p_sel1-notrx-socket.sh sb11-OLTP_RO_1M_8tab-pareto-ps-p_sel1-reconnect-notrx-socket.sh sb11-OLTP_RO_10M_8tab-pareto-s_ranges1-notrx-socket.sh sb11-OLTP_RO_10M_8tab-uniform-p_sel1-reconnect-notrx-socket.sh
 ```
-
-
 
 Now install the graph-cli through python pip to generate the graphs.
 
@@ -136,7 +132,5 @@ python ~/thrustdb_benchmarks/generate_graphs.py ~/results/
 
 In the ~/results/ directory will be your graph *.png files.
 
-See example_run.md for an example graph output of all of the above.
-
-
+See thread_pool_hybrid-vs-connection_per_thread-mysql_8.0.4-ubuntu_24.04-on-r5.8xlarge.md for an example graph output of all of the above.
 
