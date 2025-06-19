@@ -5,9 +5,9 @@ source ./set_env.sh
 testlength=90;
 for script in "$@"; do
         handler="-thread_pool_hybrid";
-        while ! sudo service mysql status | grep -q "Active: active (running)" ; do sleep 1; done
-        sudo cp my.cnf-redhat9-thread_pool_hybrid /etc/my.cnf
-        sudo service mysql restart;
+        while ! sudo service mysqld status | grep -q "Active: active (running)" ; do sleep 1; done
+        sudo cp my.cnf-redhat9-thread_pool_hybrid /etc/my.cnf;
+        sudo service mysqld restart;
         echo "Warming up filesystem cache";
         /BMK/sb_exec/$script 1024 $testlength >> /dev/null;
         mysqldpid=`pidof mysqld`;
@@ -47,9 +47,9 @@ for script in "$@"; do
         sleep 30
 
         handler="-enterprise_thread_pool";
-        while ! sudo service mysql status | grep -q "Active: active (running)" ; do sleep 1; done
-        sudo cp my.cnf-redhat9-enterprise_thread_pool /etc/my.cnf
-        sudo service mysql restart;
+        while ! sudo service mysqld status | grep -q "Active: active (running)" ; do sleep 1; done
+        sudo cp my.cnf-redhat9-enterprise_thread_pool /etc/my.cnf;
+        sudo service mysqld restart;
         echo "Warming up filesystem cache";
         /BMK/sb_exec/$script 1024 $testlength >> /dev/null;
         mysqldpid=`pidof mysqld`;
