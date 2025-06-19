@@ -37,20 +37,24 @@ It should now build it and only the source code it relies on, and output the pro
  sudo cp ../../plugin_output_directory/thread_pool_hybrid.so /usr/lib64/mysql/plugin/
 ```
 
+Now increase the open file limit to something big!
 
 ```
 echo "fs.file-max = 500000" | sudo tee -a /etc/sysctl.conf
 sudo gawk -i inplace '/LimitNOFILE/{gsub(/[0-9]+/, "500000")};{print}' /usr/lib/systemd/system/mysqld.service
 sudo sysctl -p
+sudo systemctl daemon-reload
 ```
+
+Now reboot your system.
 
 #Install and configure the benchmark tool
 
 ```
 cd ~/thrustdb_benchmarks
 sudo tar -xvzf BMK-kit.tgz -C /
-cp set_env.sh perf_test_redhat.sh my.cnf-redhat9-enterprise_thread_pool my.cnf-redhat9-thread_pool_hybrid /BMK
-sudo chown -R ubuntu:ubuntu /BMK
+sudo cp set_env.sh perf_test_redhat.sh my.cnf-redhat9-enterprise_thread_pool my.cnf-redhat9-thread_pool_hybrid /BMK
+sudo chown -R ec2-user:ec2-user /BMK
 ```
 
 grep the file that has the mysql admin user and password.
@@ -58,6 +62,17 @@ grep the file that has the mysql admin user and password.
 ```
 ~$  sudo grep password /var/log/mysqld.log
 2025-06-18T19:50:54.968030Z 6 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: [password]
+```
+
+Then use the mysql client to change the password, also create the sysbench test database.
+
+```
+mysql -u root -p
+
+mysql> ALTER USER 'username'@'host' IDENTIFIED BY '[new password]';
+mysql> CREATE DATABASE sysbench;
+mysql> quit
+```
 
 Now edit the .bench file in /BMK/ and fill in the fields.
 
@@ -89,11 +104,17 @@ vim set_env.sh
 
 export mysqladmin=root
 export mysqladminpassword=[password]
-export mysqlsocket=/var/run/mysqld/mysql.sock
+export mysqlsocket=/var/lib/mysql/mysql.sock
 export resultsdir=/home/ec2-user/results
 ```
 
-Now you can run the benchmark tool. First I ran the prepare script, then my perf_test.sh tool.
+I was getting errors attempting to run the `time bash /BMK/sb_exec/sb11-Prepare_10M_8tab-InnoDB.sh 32` command. So I did this:
+
+```
+sudo link /var/lib/mysql/mysql.sock /tmp/mysql.sock
+```
+
+Now you can run the benchmark tool. First I ran the prepare script, then my perf_test_redhat.sh tool.
 
 ```
 time bash /BMK/sb_exec/sb11-Prepare_10M_8tab-InnoDB.sh 32
@@ -103,7 +124,6 @@ time bash /BMK/sb_exec/sb11-Prepare_10M_8tab-InnoDB.sh 32
 Now install the graph-cli through python pip to generate the graphs.
 
 ```
-sudo yum install python3.12-venv
 python3 -m venv ~/python
 export PATH=/home/ec2-user/python/bin:$PATH
 pip3 install graph-cli
@@ -113,5 +133,5 @@ python ~/thrustdb_benchmarks/generate_graphs.py ~/results/
 
 In the ~/results/ directory will be your graph *.png files.
 
-See thread_pool_hybrid_vs_enterprise_thread_pool-mysql-9.0.3-redhat_9.0.4-r7i.2xlarge.md for an example graph output of all of the above.
+See thread_pool_hybrid_vs_enterprise_thread_pool-mysql-9.0.3-redhat_9.0.4-r7i.4xlarge.md for an example graph output of all of the above.
 

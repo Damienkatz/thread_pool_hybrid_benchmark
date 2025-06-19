@@ -57,7 +57,7 @@ sudo sysctl -p
 ```
 cd ~/thrustdb_benchmarks
 sudo tar -xvzf BMK-kit.tgz -C /
-cp set_env.sh perf_test_ubuntu.sh /BMK
+sudo cp set_env.sh perf_test_ubuntu.sh /BMK
 sudo chown -R ubuntu:ubuntu /BMK
 ```
 
