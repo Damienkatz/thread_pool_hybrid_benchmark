@@ -41,6 +41,8 @@ Now increase the open file limit to something big!
 
 ```
 echo "fs.file-max = 500000" | sudo tee -a /etc/sysctl.conf
+echo "*                soft    nofile          500000
+*                hard    nofile          500000" | sudo tee -a /etc/security/limits.conf
 sudo gawk -i inplace '/LimitNOFILE/{gsub(/[0-9]+/, "500000")};{print}' /usr/lib/systemd/system/mysqld.service
 sudo sysctl -p
 sudo systemctl daemon-reload
@@ -55,9 +57,10 @@ cd ~/thrustdb_benchmarks
 sudo tar -xvzf BMK-kit.tgz -C /
 sudo cp set_env.sh perf_test_redhat.sh my.cnf-redhat9-enterprise_thread_pool my.cnf-redhat9-thread_pool_hybrid /BMK
 sudo chown -R ec2-user:ec2-user /BMK
+mkdir ~/results
 ```
 
-grep the file that has the mysql admin user and password.
+grep the error log file that has the mysql admin user and password.
 
 ```
 ~$  sudo grep password /var/log/mysqld.log
@@ -106,12 +109,6 @@ export mysqladmin=root
 export mysqladminpassword=[password]
 export mysqlsocket=/var/lib/mysql/mysql.sock
 export resultsdir=/home/ec2-user/results
-```
-
-I was getting errors attempting to run the `time bash /BMK/sb_exec/sb11-Prepare_10M_8tab-InnoDB.sh 32` command. So I did this:
-
-```
-sudo link /var/lib/mysql/mysql.sock /tmp/mysql.sock
 ```
 
 Now you can run the benchmark tool. First I ran the prepare script, then my perf_test_redhat.sh tool.
