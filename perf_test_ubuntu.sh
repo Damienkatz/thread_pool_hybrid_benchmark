@@ -6,7 +6,7 @@ testlength=90;
 for script in "$@"; do
         for handler in "-thread_pool_hybrid" "-connection_per_thread"; do
                 while ! sudo service mysql status | grep -q "Active: active (running)" ; do sleep 1; done
-                if [[ "$$handler" == "-thread_pool_hybri" ]] ; then
+                if [[ "$$handler" == "-thread_pool_hybrid" ]] ; then
                         mysql -u $mysqladmin -p$mysqladminpassword -S $mysqlsocket -e \
                                 "INSTALL PLUGIN THREAD_POOL_HYBRID SONAME 'thread_pool_hybrid.so';" ;
                 elif [[ "$$handler" == "-connection_per_thread" ]] ; then
