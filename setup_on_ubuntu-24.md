@@ -8,7 +8,7 @@ I git cloned the this repo, thread_pool_hybrid repo and mysql-server repo from g
 
 ```
 cd ~
-git clone https://github.com/Damienkatz/thrustdb_benchmarks.git
+git clone https://github.com/Damienkatz/thread_pool_hybrid_benchmark.git
 git clone https://github.com/Damienkatz/thread_pool_hybrid.git
 git clone https://github.com/mysql/mysql-server.git
 cd mysql-server
@@ -26,10 +26,10 @@ cd plugin/thread_pool_hybrid
 make
 ```
 
-It should now build it and only the source code it relies on, and output the properly version lib to `mysql-server/plugin_output_directory/libthread_pool_hybrid.so` So then copy that to the mysql plugin directory.
+It should now build it and only the source code it relies on, and output the properly version lib to `mysql-server/plugin_output_directory/thread_pool_hybrid.so` So then copy that to the mysql plugin directory.
 
 ```
- sudo cp ../../plugin_output_directory/libthread_pool_hybrid.so /usr/lib/mysql/plugin/
+ sudo cp ../../plugin_output_directory/thread_pool_hybrid.so /usr/lib/mysql/plugin/
 ```
 
 In MySQL, I turned off binlogging, increased the innodb buffer pool and increased max_connections and max_prepared_stmt_count in /etc/mysql/mysql.conf.d/mysqld.cnf. You can use this command:
