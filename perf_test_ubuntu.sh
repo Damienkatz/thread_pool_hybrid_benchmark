@@ -6,14 +6,12 @@ testlength=90;
 for script in "$@"; do
         for handler in "-thread_pool_hybrid" "-connection_per_thread"; do
                 while ! sudo service mysql status | grep -q "Active: active (running)" ; do sleep 1; done
-                if [[ "$handler == "-thread_pool_hybrid" ]] ; then
-                        echo "install tph"
-                        mysql -u $mysqladmin -p$mysqladminpassword -S $mysqlsocket -e \
-                                "INSTALL PLUGIN THREAD_POOL_HYBRID SONAME 'thread_pool_hybrid.so';" ;
+                if [[ "$handler" == "-thread_pool_hybrid" ]] ; then
+                        echo "install tph";
+                        mysql -u $mysqladmin -p$mysqladminpassword -S $mysqlsocket -e "INSTALL PLUGIN THREAD_POOL_HYBRID SONAME 'thread_pool_hybrid.so';" ;
                 elif [[ "$handler" == "-connection_per_thread" ]] ; then
-                        echo "install cpt"
-                        mysql -u $mysqladmin -p$mysqladminpassword -S $mysqlsocket -e \
-                                "UNINSTALL PLUGIN THREAD_POOL_HYBRID;" 2> /dev/null;
+                        echo "install cpt";
+                        mysql -u $mysqladmin -p$mysqladminpassword -S $mysqlsocket -e "UNINSTALL PLUGIN THREAD_POOL_HYBRID;" 2> /dev/null;
                 fi;
                 sudo service mysql restart;
                 echo "Warming up filesystem cache";
